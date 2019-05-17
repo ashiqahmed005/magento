@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config>
+    <global>
+        <modules>
+            <vaimo_productlist>
+                <version>0.1.0</version>
+            </vaimo_productlist>
+        </modules>
+        <blocks>
+            <productlist>
+                <rewrite>
+                    <productlist>VAIMO_ProductList_Block_ProductList</productlist>
+                </rewrite>
+            </productlist>
+        </blocks>
+
+    </global>
+    <frontend>
+        <routers>
+            <productlist>
+                <use>standard</use>
+                <args>
+                    <module>VAIMO_ProductList</module>
+                    <frontName>productlist</frontName>
+                </args>
+            </productlist>
+        </routers>
+        <layout>
+            <updates>
+                <productlist>
+                    <file>productlist.xml</file>
+                </productlist>
+            </updates>
+        </layout>
+    </frontend>
+</config>

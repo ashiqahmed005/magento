@@ -1,0 +1,27 @@
+<div class="category-products">
+<ul class="products-grid">
+
+    <?php foreach ($this->getProducts() as $_product): ?>
+
+
+        <li class="item">
+            <a href="<?php echo $_product->getProductUrl() ?>"
+               title="<?php echo $this->getImageLabel($_product, 'small_image') ?>"
+               class="product-image">
+                <img src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize(135); ?>"
+                     width="135" height="135"
+                     alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"
+                />
+            </a>
+            <a href="<?php echo $_product->getProductUrl() ?>"><?php echo $_product->getName() ?></a>
+            <?php echo $this->getPriceHtml($_product, true) ?>
+
+        </li>
+    <?php endforeach; ?>
+</ul>
+</div>
+
+<form method="post" action="<?php echo Mage::getBaseUrl()?>productlist/index/">
+    <input type="text" hidden name="reverse" value="<?php echo $reverseButton_value  ?>">
+    <button class="button" title="Submit" type="submit"><span><span><?php echo $this->__('Reverse')?></span></span></button>
+</form>
